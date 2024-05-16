@@ -1,3 +1,13 @@
 * {
   font-family: Arial;
 }
+
+#mensagem-erro-escondida {
+  display: none;
+}
+
+#mensagem-erro-visivel {
+  display: inline-block;
+  margin: 0;
+  color: red;
+}

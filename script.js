@@ -1,5 +1,6 @@
 const inputTarefa = document.getElementById('input-tarefa');
 const botaoAdicionar = document.getElementById('botao-adicionar');
+const mensagemErro = document.getElementById('mensagem-erro-escondida');
 const listaTarefas = document.getElementById('lista-tarefas');
 
 let lista = JSON.parse(localStorage.getItem('lista')) || [];
@@ -9,6 +10,12 @@ exibirLista();
 if (lista.length > 0) {
   adicionarEventoBotaoRemover();
 }
+
+inputTarefa.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    botaoAdicionar.click();
+  }
+});
 
 botaoAdicionar.addEventListener('click', () => {
   adicionarTarefa();
@@ -27,7 +34,13 @@ function adicionarEventoBotaoRemover() {
 
 function adicionarTarefa() {
   const tarefaDigitada = inputTarefa.value;
-  lista.push(tarefaDigitada);
+
+  if (tarefaDigitada === '') {
+    exibirErro();
+  } else {
+    lista.push(tarefaDigitada);
+    esconderErro();
+  }
 
   inputTarefa.value = '';
 
@@ -59,6 +72,14 @@ function exibirLista() {
     `;
   });
   listaTarefas.innerHTML = html;
+}
+
+function exibirErro() {
+  mensagemErro.id = 'mensagem-erro-visivel';
+}
+
+function esconderErro() {
+  mensagemErro.id = 'mensagem-erro-escondida';
 }
 
 function salvarStorage() {
