@@ -1,7 +1,58 @@
+/* Global */
 * {
   font-family: Arial;
+  box-sizing: border-box;
 }
 
+/* Input */
+#input-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+#input-tarefa {
+  padding: 5px;
+  font-size: 18px;
+}
+
+/* Botões */
+button {
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 2px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+#botao-adicionar {
+  height: 35px;
+  background-color: #28a745;
+}
+
+.botao-remover {
+  height: 25px;
+  background-color: #dc3545;
+  margin-left: 3px;
+}
+
+/* Lista */
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Item da lista */
+li {
+  font-size: 18px;
+}
+
+/* Mensagem de erro */
 #mensagem-erro-escondida {
   display: none;
 }
