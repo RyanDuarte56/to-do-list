@@ -63,14 +63,14 @@ function removerTarefa(tarefa) {
 
 function exibirLista() {
   let html = '';
-  lista.forEach((tarefa) => {
+  for (let i = 0; i < lista.length; i++) {
     html += `
-      <li id="${lista.indexOf(tarefa)}">
-        ${tarefa}
+      <li id="${i}">
+        ${lista[i]}
         <button class="botao-remover">Remover</button>
       </li>
     `;
-  });
+  }
   listaTarefas.innerHTML = html;
 }
 
